@@ -2,10 +2,9 @@
 import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
 
-import {ROUTE_ABOUT, ROUTE_HOME} from 'types'
+import {ROUTE_HOME} from 'types'
 
 const routesMap = {
-  [ROUTE_ABOUT]: '/about',
   [ROUTE_HOME]: '/'
 }
 
