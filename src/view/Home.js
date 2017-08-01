@@ -15,21 +15,35 @@ const Section = styled.section`
   justify-content: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: ${getTheme('black')}
+  background-color: ${getTheme('black')};
+  @media (min-width: ${getTheme('breakpoint')}) {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
 `
 
 const H1 = styled.h1`
-  color: ${getTheme('accent')};
+  color: ${getTheme('primary')};
   font-family: 'Roboto Condensed';
   font-size: 30vw;
   font-weight: 400;
   line-height: 1;
+  letter-spacing: -0.05em;
+  @media (min-width: ${getTheme('breakpoint')}) {
+    font-size: 6rem;
+  }
 `
 
 const Hr = styled.hr`
-  width: 50%;
+  width: 20rem;
   margin-left: 0;
-  border-color: ${getTheme('primary')}
+  border-color: ${getTheme('accent')};
+  @media (min-width: ${getTheme('breakpoint')}) {
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 20rem) {
+    width: 100%;
+  }
 `
 
 const Ul = styled.ul`
@@ -48,6 +62,15 @@ const A = styled.a`
   color: ${getTheme('grays', 'medium')};
   & svg {
     margin-right: 0.5rem;
+  }
+  & svg path {
+    fill: ${getTheme('grays', 'medium')};
+  }
+  &:hover {
+    color: ${getTheme('primary')};
+    & svg path {
+      fill: ${getTheme('primary')};
+    }
   }
 `
 
