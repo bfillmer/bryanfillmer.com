@@ -91,7 +91,7 @@ export const App = () => (
     <Ul>
       <Li><A href='https://github.com/bfillmer/'><Github /> Github</A></Li>
       <Li><A href='https://www.linkedin.com/in/bfillmer/'><Linkedin /> Linkedin</A></Li>
-      <Li><A href=''><Medium /> Medium</A></Li>
+      <Li><A href='https://medium.com/@bryanfillmer'><Medium /> Medium</A></Li>
     </Ul>
   </Section>
 )
