@@ -2,10 +2,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// @TODO Move these to one Icons file, srsly.
-import {Github} from 'view/Svg/Github'
-import {Linkedin} from 'view/Svg/Linkedin'
-import {Medium} from 'view/Svg/Medium'
+import {
+  Github,
+  Linkedin,
+  Medium,
+  Twitter
+} from 'view/Icons'
 
 // Color Theme Used
 // https://coolors.co/c1cfda-f7f7f2-4281a4-ff4a1c-03191e
@@ -38,14 +40,12 @@ const H1 = styled.h1`
 `
 
 const Hr = styled.hr`
-  width: 20rem;
+  width: 100%;
   margin-left: 0;
   border-color: #4281a4;
   @media (min-width: 45rem) {
     margin-top: 1.5rem;
-  }
-  @media (max-width: 20rem) {
-    width: 100%;
+    width: 50%;
   }
 `
 
@@ -92,6 +92,7 @@ export const App = () => (
       <Li><A href='https://github.com/bfillmer/'><Github /> Github</A></Li>
       <Li><A href='https://www.linkedin.com/in/bfillmer/'><Linkedin /> Linkedin</A></Li>
       <Li><A href='https://medium.com/@bryanfillmer'><Medium /> Medium</A></Li>
+      <Li><A href='https://twitter.com/bfillmer'><Twitter /> Twitter</A></Li>
     </Ul>
   </Section>
 )
