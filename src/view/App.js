@@ -1,16 +1,26 @@
 
 import React from 'react'
-import styled from 'styled-components'
+import styled, {injectGlobal} from 'styled-components'
 
-import {
-  Github,
-  Linkedin,
-  Medium,
-  Twitter
-} from 'view/Icons'
+import {Github, Linkedin, Medium, Instagram} from 'view/Icons'
 
-// Color Theme Used
-// https://coolors.co/c1cfda-f7f7f2-4281a4-ff4a1c-03191e
+const colors = {
+  text: '#004466',
+  hover: '#000',
+  bg: '#00ffa2'
+}
+
+injectGlobal`
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    font-family: 'Cabin Condensed', sans-serif;
+    font-size: 1.6rem;
+    color: ${colors.text};
+    background-color: ${colors.bg};
+  }
+`
 
 const Section = styled.section`
   width: 100%;
@@ -20,45 +30,48 @@ const Section = styled.section`
   justify-content: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: #03191e;
   @media (min-width: 45rem) {
     padding-left: 6rem;
     padding-right: 6rem;
   }
 `
 
+const Flex = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: ${props => props.align};
+`
+
 const H1 = styled.h1`
-  color: #ff4a1c;
-  font-family: 'Roboto Condensed';
-  font-size: 30vw;
+  font-family: 'Lobster Two', cursive;
+  font-size: 9rem;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.05em;
-  @media (min-width: 45rem) {
-    font-size: 6rem;
-  }
+  padding-bottom: 2rem;
 `
 
-const Hr = styled.hr`
+const HR = styled.hr`
   width: 100%;
+  height: 0;
   margin-left: 0;
-  border-color: #4281a4;
-  @media (min-width: 45rem) {
-    margin-top: 1.5rem;
+  border: none;
+  border-top: 1px solid ${colors.text};
+  @media (min-width: 60rem) {
     width: 50%;
   }
 `
 
-const Ul = styled.ul`
-  margin-top: 1rem;
+const UL = styled.ul`
+  padding-top: 1rem;
 `
 
-const Li = styled.li`
+const LI = styled.li`
   display: block;
-  margin-right: 1rem;
+  margin-right: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  @media (min-width: 45rem) {
+  @media (min-width: 30rem) {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
@@ -67,32 +80,39 @@ const Li = styled.li`
 
 const A = styled.a`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   text-decoration: none;
-  color: #c1cfda;
+  color: ${colors.text};
+  line-height: 1;
   & svg {
     margin-right: 0.5rem;
   }
   & svg path {
-    fill: #c1cfda;
+    fill: ${colors.text};
   }
   &:hover {
-    color: #f7f7f2;
+    color: ${colors.hover};
     & svg path {
-      fill: #f7f7f2;
+      fill: ${colors.hover};
     }
   }
 `
 
-export const App = () => (
-  <Section>
-    <H1>Bryan Fillmer</H1>
-    <Hr />
-    <Ul>
-      <Li><A href='https://github.com/bfillmer/'><Github /> Github</A></Li>
-      <Li><A href='https://www.linkedin.com/in/bfillmer/'><Linkedin /> Linkedin</A></Li>
-      <Li><A href='https://medium.com/@bryanfillmer'><Medium /> Medium</A></Li>
-      <Li><A href='https://twitter.com/bfillmer'><Twitter /> Twitter</A></Li>
-    </Ul>
-  </Section>
-)
+export function App () {
+  return (
+    <Section>
+      <Flex align='flex-end'>
+        <H1>Bryan Fillmer</H1>
+      </Flex>
+      <HR />
+      <Flex align='flex-start'>
+        <UL>
+          <LI><A href='https://github.com/bfillmer/'><Github /> Github</A></LI>
+          <LI><A href='https://medium.com/@bryanfillmer'><Medium /> Medium</A></LI>
+          <LI><A href='https://www.linkedin.com/in/bfillmer/'><Linkedin /> Linkedin</A></LI>
+          <LI><A href='https://www.instagram.com/bryan.fillmer/'><Instagram /> Instagram</A></LI>
+        </UL>
+      </Flex>
+    </Section>
+  )
+}
